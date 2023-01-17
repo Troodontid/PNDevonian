@@ -94,8 +94,6 @@ public class BiomeDevonianBrackish extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenRedSandyDirt REDSANDYDIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
-		protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
-		protected static final WorldGenBlueHole BLUE_HOLE_GENERATOR = new WorldGenBlueHole();
 
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
@@ -153,35 +151,6 @@ public class BiomeDevonianBrackish extends ElementsLepidodendronMod.ModElement {
 					GROUNDCOVER_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
-			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.ROCK)) {
-				int j = rand.nextInt(16) + 8;
-				int k = rand.nextInt(16) + 8;
-				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-				BlockPos pos1 = pos.add(j, l, k);
-				if (
-						(pos1.getY() < worldIn.getSeaLevel() - 6)
-								&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-								&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-								&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
-				) {
-					BLUE_HOLE_GENERATOR.generate(worldIn, rand, pos1, 14);
-				}
-
-				for (int i = 0; i < 5; ++i) {
-					j = rand.nextInt(16) + 8;
-					k = rand.nextInt(16) + 8;
-					l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					pos1 = pos.add(j, l, k);
-					if (
-							(pos1.getY() < worldIn.getSeaLevel() - 5)
-									&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
-					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, 10, BlockCoral.block.getDefaultState());
-					}
-				}
-			}
 
 			super.decorate(worldIn, rand, pos);
 		}
