@@ -3,6 +3,7 @@ package net.pndevonian.world.biome.devonian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
 import net.lepidodendron.block.BlockCoral;
+import net.lepidodendron.block.BlockStromatoporoideaReef;
 import net.lepidodendron.util.EnumBiomeTypeDevonian;
 import net.lepidodendron.world.biome.devonian.BiomeDevonian;
 import net.lepidodendron.world.gen.*;
@@ -48,7 +49,7 @@ public class BiomeDevonianOcean extends ElementsLepidodendronMod.ModElement {
 			decorator.treesPerChunk = -999;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
-			decorator.mushroomsPerChunk = 20;
+			decorator.mushroomsPerChunk = 0;
 			decorator.bigMushroomsPerChunk = 0;
 			decorator.reedsPerChunk = 0;
 			decorator.cactiPerChunk = 0;
@@ -95,6 +96,7 @@ public class BiomeDevonianOcean extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenReef REEF_GENERATOR = new WorldGenReef();
+		protected static final WorldGenReef CORAL_REEF_GENERATOR = new WorldGenReef();
 		protected static final WorldGenBlueHole BLUE_HOLE_GENERATOR = new WorldGenBlueHole();
 
 
@@ -167,18 +169,47 @@ public class BiomeDevonianOcean extends ElementsLepidodendronMod.ModElement {
 					BLUE_HOLE_GENERATOR.generate(worldIn, rand, pos1, 14);
 				}
 
-				for (int i = 0; i < 5; ++i) {
-					j = rand.nextInt(16) + 8;
-					k = rand.nextInt(16) + 8;
-					l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					pos1 = pos.add(j, l, k);
+				for (int i = 0; i < 3; ++i) {
+					int radius = 10;
+					int jj;
+					int kk;
+					if (radius < 14) {
+						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					}
+					else {
+						radius = 14;
+						jj = 16;
+						kk = 16;
+					}
+					int ll = rand.nextInt(worldIn.getHeight(pos.add(jj, 0, kk)).getY() + 32);
+					BlockPos posReef = pos.add(jj, ll, kk);
 					if (
-							(pos1.getY() < worldIn.getSeaLevel() - 5)
-									&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
+							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, 10, BlockCoral.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, posReef, radius, BlockStromatoporoideaReef.block.getDefaultState());
+					}
+				}
+
+				for (int i = 0; i < 2; ++i) {
+					int radius = 2;
+					int jj;
+					int kk;
+					if (radius < 14) {
+						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					}
+					else {
+						radius = 14;
+						jj = 16;
+						kk = 16;
+					}
+					int ll = rand.nextInt(worldIn.getHeight(pos.add(jj, 0, kk)).getY() + 32);
+					BlockPos posReef = pos.add(jj, ll, kk);
+					if (
+							(posReef.getY() < worldIn.getSeaLevel())
+					) {
+						CORAL_REEF_GENERATOR.generate(worldIn, rand, posReef, radius, BlockCoral.block.getDefaultState());
 					}
 				}
 			}

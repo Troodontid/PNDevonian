@@ -28,7 +28,7 @@ import java.util.function.Supplier;
 public class PNDevonianMod {
     public static final String MODID = "pndevonian";
     public static final String NAME = "Prehistoric Nature Devonian Dimension";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "2.0";
     public static final SimpleNetworkWrapper PACKET_HANDLER = NetworkRegistry.INSTANCE.newSimpleChannel("pndevonian:a");
     @SidedProxy(clientSide = "net.pndevonian.ClientProxyPNDevonianMod", serverSide = "net.pndevonian.ServerProxyPNDevonianMod")
     public static IProxyPNDevonianMod proxy;

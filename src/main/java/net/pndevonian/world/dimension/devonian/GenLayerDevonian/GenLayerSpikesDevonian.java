@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
-import net.pndevonian.world.biome.devonian.BiomeDevonianHills;
+import net.pndevonian.world.biome.devonian.BiomeDevonianForest;
 import net.pndevonian.world.biome.devonian.BiomeDevonianSwamp;
 
 public class GenLayerSpikesDevonian extends GenLayer {
@@ -53,7 +53,7 @@ public class GenLayerSpikesDevonian extends GenLayer {
                 int center = input[i];
                 initChunkSeed(xOut + x, zOut + z);
                 if (nextInt(2) == 0) {
-                    if (Biome.getBiome(center) == BiomeDevonianHills.biome)
+                    if (Biome.getBiome(center) == BiomeDevonianForest.biome)
                         output[i] = ForestBiomes[nextInt(ForestBiomes.length)];
                     else if (Biome.getBiome(center) == BiomeDevonianSwamp.biome)
                         output[i] = SwampBiomes[nextInt(SwampBiomes.length)];

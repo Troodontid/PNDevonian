@@ -41,14 +41,14 @@ public class BiomeDevonianMountains extends ElementsLepidodendronMod.ModElement 
 			setRegistryName("devonian_mountains");
 			topBlock = BlockPrehistoricGroundBasic.block.getDefaultState();
 			fillerBlock = Blocks.STONE.getStateFromMeta(0);
-			decorator.treesPerChunk = 10;
+			decorator.treesPerChunk = 7;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
 			decorator.mushroomsPerChunk = 0;
 			decorator.bigMushroomsPerChunk = 0;
 			decorator.reedsPerChunk = 0;
 			decorator.cactiPerChunk = 0;
-			decorator.sandPatchesPerChunk = 20;
+			decorator.sandPatchesPerChunk = 1;
 			decorator.gravelPatchesPerChunk = 0;
 			this.spawnableMonsterList.clear();
 			this.spawnableCreatureList.clear();

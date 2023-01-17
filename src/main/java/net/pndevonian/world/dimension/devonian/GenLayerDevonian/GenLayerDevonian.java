@@ -11,36 +11,55 @@ public class GenLayerDevonian {
     public static GenLayer[] initializeAllBiomeGenerators(long seed, WorldType worldType, String options) {
 
         GenLayer biomes = new GenLayerDevonianBiomes(1L);
-        biomes = new GenLayerDevonianAddMountains(1000L, biomes);
         biomes = new GenLayerFuzzyZoom(2000L, biomes);
         if (!LepidodendronConfig.doShrinkBiomes) {
             biomes = new GenLayerZoom(2001L, biomes);
         }
-        //biomes = new GenLayerDevonianAddMountains(1000L, biomes);
-        biomes = new GenLayerDiversifyDevonian(1000L, biomes);
-        biomes = new GenLayerDevonianDeepOcean(1100L, biomes);
-        biomes = new GenLayerDevonianShallowOcean(1300L, biomes);
-        biomes = new GenLayerDevonianDeadReefs(387L, biomes);
-        biomes = new GenLayerDiversifyGilboa(1009L, biomes);
+
+        //Surround mountains with either Savanna, Swamp or Forest
+        biomes = new GenLayerDevonianBorderMountains(724L, biomes);
         biomes = new GenLayerZoom(1000L, biomes);
-        biomes = new GenLayerDiversifyDevonian(1001L, biomes);
-        //biomes = new GenLayerDevonianDeadReefs(387L, biomes);
-        biomes = new GenLayerSpringsDevonian(955L, biomes);
-        //biomes = new GenLayerDiversifyGilboa(1009L, biomes);
+
+        //Replace Savanna with Hot Springs
+        biomes = new GenLayerDiversifySavanna(328L, biomes);
+        //Replace Forest with Meadow
+        biomes = new GenLayerDiversifyForest(328L, biomes);
+        //Replace Swamp with Gilboa
+        biomes = new GenLayerDiversifySwamp(328L, biomes);
+        //If mountains surround, add Vale
+        biomes = new GenLayerDevonianVale(1015L, biomes);
+        //Sort out shallow and deep Oceans
+        biomes = new GenLayerDevonianDeepOcean(1109L, biomes);
+        biomes = new GenLayerDevonianShallowOcean(1400L, biomes);
         biomes = new GenLayerFuzzyZoom(1009L, biomes);
+
+        //Surround with Floodplains or brackish sometimes
+        biomes = new GenLayerDevonianNearSeaBiomes(1400L, biomes);
+        //Replace Vale with Hot Springs
+        biomes = new GenLayerDiversifyVale(1430L, biomes);
+        //Diversify Ocean biomes:
+        biomes = new GenLayerDiversifyOcean(1431L, biomes);
+        //biomes = new GenLayerZoom(1000L, biomes);
+
+        biomes = new GenLayerZoom(1000L, biomes);
+        //Extend the reefs:
+        biomes = new GenLayerDevonianReefExtend(1630L, biomes);
+        biomes = new GenLayerFuzzyZoom(1009L, biomes);
+
         biomes = new GenLayerSpikesDevonian(950L, biomes);
         biomes = new GenLayerSinkholesDevonian(850L, biomes);
         biomes = new GenLayerSmooth(703L, biomes);
         biomes = new GenLayerFuzzyZoom(1000L, biomes);
+
         biomes = new GenLayerDevonianBeach(1050L, biomes);
         biomes = new GenLayerSmooth(705L, biomes);
         biomes = new GenLayerFuzzyZoom(1001L, biomes);
+
         biomes = new GenLayerSmooth(706L, biomes);
-        //biomes = new GenLayerBlueHoleDevonian(1001L, biomes);
         biomes = new GenLayerFuzzyZoom(1002L, biomes);
-        //biomes = new GenLayerBlueHoleDevonian(1001L, biomes);
         biomes = new GenLayerSinkholeTransition(1001L, biomes);
         biomes = new GenLayerZoom(1006L, biomes);
+
         GenLayer genlayervoronoizoom = new GenLayerVoronoiZoom(10L, biomes);
         biomes.initWorldGenSeed(seed);
         genlayervoronoizoom.initWorldGenSeed(seed);

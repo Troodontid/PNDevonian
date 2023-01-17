@@ -8,18 +8,15 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerDevonianBiomes extends GenLayer {
 
-    public Biome DEVONIAN_OCEAN = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_ocean"));
-    public  int DEVONIAN_OCEAN_ID =  Biome.getIdForBiome(DEVONIAN_OCEAN);
-    public  Biome DEVONIAN_HILLS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_hills"));
-    public  int DEVONIAN_HILLS_ID =  Biome.getIdForBiome(DEVONIAN_HILLS);
-    public Biome DEVONIAN_SWAMP = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_swamp"));
-    public int DEVONIAN_SWAMP_ID =  Biome.getIdForBiome(DEVONIAN_SWAMP);
+    public Biome DEVONIAN_OCEAN_SHORE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_ocean"));
+    public int DEVONIAN_OCEAN_SHORE_ID =  Biome.getIdForBiome(DEVONIAN_OCEAN_SHORE);
+    public Biome DEVONIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_mountains"));
+    public int DEVONIAN_MOUNTAINS_ID =  Biome.getIdForBiome(DEVONIAN_MOUNTAINS);
 
-    private final int DevonianBiomes[] = new int[] {
-        DEVONIAN_HILLS_ID,
-        DEVONIAN_OCEAN_ID,
-        DEVONIAN_OCEAN_ID,
-        DEVONIAN_SWAMP_ID
+    private final int Biomes[] = new int[] {
+            DEVONIAN_OCEAN_SHORE_ID,
+            DEVONIAN_OCEAN_SHORE_ID,
+            DEVONIAN_MOUNTAINS_ID
     };
 
     public GenLayerDevonianBiomes(long seed) {
@@ -32,7 +29,7 @@ public class GenLayerDevonianBiomes extends GenLayer {
         for (int dz = 0; dz < height; dz++) {
             for (int dx = 0; dx < width; dx++) {
                 initChunkSeed(dx + x, dz + z);
-                dest[dx + dz * width] = DevonianBiomes[nextInt(DevonianBiomes.length)];
+                dest[dx + dz * width] = Biomes[nextInt(Biomes.length)];;
             }
         }
         return dest;

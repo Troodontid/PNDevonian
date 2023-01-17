@@ -37,7 +37,7 @@ public class PNWandHandler {
 
         if (!(itemstack.getItem().getDamage(itemstack) < (itemstack.getItem().getMaxDamage() - 1))) {
             event.setCancellationResult(EnumActionResult.FAIL);
-            event.setCanceled(true);
+            //event.setCanceled(true);
             return;
         }
 
@@ -45,7 +45,7 @@ public class PNWandHandler {
         if (levelEnchantment > 0) {
             if (!entity.canPlayerEdit(pos1, facing, itemstack)) {
                 event.setCancellationResult(EnumActionResult.FAIL);
-                event.setCanceled(true);
+                //event.setCanceled(true);
                 return;
             }
             if (world.isAirBlock(pos1)) {
@@ -57,13 +57,10 @@ public class PNWandHandler {
                         itemstack.damageItem(1, entity);
                     }
                     event.setCancellationResult(EnumActionResult.SUCCESS);
-                    event.setCanceled(true);
+                    //event.setCanceled(true);
                     return;
                 }
             }
         }
-        event.setCancellationResult(EnumActionResult.FAIL);
-        event.setCanceled(true);
-        return;
     }
 }
