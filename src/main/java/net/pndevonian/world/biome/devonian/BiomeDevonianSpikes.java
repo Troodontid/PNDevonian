@@ -121,7 +121,7 @@ public class BiomeDevonianSpikes extends ElementsLepidodendronMod.ModElement {
 
 		@Override
 		public EnumBiomeTypeDevonian getBiomeType() {
-			return EnumBiomeTypeDevonian.Forest;
+			return EnumBiomeTypeDevonian.Mountains;
 		}
 	}
 

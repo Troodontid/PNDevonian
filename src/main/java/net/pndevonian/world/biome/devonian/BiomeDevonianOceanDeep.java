@@ -168,17 +168,24 @@ public class BiomeDevonianOceanDeep extends ElementsLepidodendronMod.ModElement 
 				}
 
 				for (int i = 0; i < 5; ++i) {
-					j = rand.nextInt(16) + 8;
-					k = rand.nextInt(16) + 8;
-					l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					pos1 = pos.add(j, l, k);
+					int radius = 10;
+					int jj;
+					int kk;
+					if (radius < 14) {
+						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					}
+					else {
+						radius = 14;
+						jj = 16;
+						kk = 16;
+					}
+					int ll = rand.nextInt(worldIn.getHeight(pos.add(jj, 0, kk)).getY() + 32);
+					BlockPos posReef = pos.add(jj, ll, kk);
 					if (
-							(pos1.getY() < worldIn.getSeaLevel() - 5)
-									&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
+							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, 10, BlockCoral.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, pos1, radius, BlockCoral.block.getDefaultState());
 					}
 				}
 			}

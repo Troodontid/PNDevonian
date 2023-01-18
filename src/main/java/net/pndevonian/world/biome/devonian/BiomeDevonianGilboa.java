@@ -312,7 +312,7 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 
 	    @Override
 		public EnumBiomeTypeDevonian getBiomeType() {
-			return EnumBiomeTypeDevonian.Floodplain;
+			return EnumBiomeTypeDevonian.Gilboa;
 		}
 	}
 

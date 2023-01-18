@@ -255,7 +255,7 @@ public class BiomeDevonianSandyBeach extends ElementsLepidodendronMod.ModElement
 
 	    @Override
 		public EnumBiomeTypeDevonian getBiomeType() {
-			return EnumBiomeTypeDevonian.Floodplain;
+			return EnumBiomeTypeDevonian.Ocean;
 		}
 	}
 

@@ -77,6 +77,7 @@ public class BiomeDevonianMeadow extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenGravel GRAVEL_GENERATOR = new WorldGenGravel();
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
+		protected static final WorldGenLushPrehistoricGround LUSH_GENERATOR = new WorldGenLushPrehistoricGround();
 
 		protected static final WorldGenAsteroxylon ASTEROXYLON_GENERATOR = new WorldGenAsteroxylon();
 
@@ -112,6 +113,13 @@ public class BiomeDevonianMeadow extends ElementsLepidodendronMod.ModElement {
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					this.SILTY_DIRT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+				for (int j1 = 0; j1 < 17; ++j1)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					this.LUSH_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 			}
 

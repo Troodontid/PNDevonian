@@ -118,32 +118,46 @@ public class BiomeDevonianOceanDeadReef extends ElementsLepidodendronMod.ModElem
 				}
 
 				for (int i = 0; i < 6; ++i) {
-					j = rand.nextInt(16) + 8;
-					k = rand.nextInt(16) + 8;
-					l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					pos1 = pos.add(j, l, k);
+					int radius = 4;
+					int jj;
+					int kk;
+					if (radius < 14) {
+						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					}
+					else {
+						radius = 14;
+						jj = 16;
+						kk = 16;
+					}
+					int ll = rand.nextInt(worldIn.getHeight(pos.add(jj, 0, kk)).getY() + 32);
+					BlockPos posReef = pos.add(jj, ll, kk);
 					if (
-							(pos1.getY() < worldIn.getSeaLevel() - 5)
-									&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
+							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, 4, BlockCoralBleached.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, pos1, radius, BlockCoralBleached.block.getDefaultState());
 					}
 				}
 
 				for (int i = 0; i < 16; ++i) {
-					j = rand.nextInt(16) + 8;
-					k = rand.nextInt(16) + 8;
-					l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					pos1 = pos.add(j, l, k);
+					int radius = 2;
+					int jj;
+					int kk;
+					if (radius < 14) {
+						jj = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+						kk = 16 + rand.nextInt(16 - radius - 2) - rand.nextInt(16 - radius - 2);
+					}
+					else {
+						radius = 14;
+						jj = 16;
+						kk = 16;
+					}
+					int ll = rand.nextInt(worldIn.getHeight(pos.add(jj, 0, kk)).getY() + 32);
+					BlockPos posReef = pos.add(jj, ll, kk);
 					if (
-							(pos1.getY() < worldIn.getSeaLevel() - 5)
-									&& (worldIn.getBlockState(pos1).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up()).getMaterial() == Material.WATER)
-									&& (worldIn.getBlockState(pos1.up(2)).getMaterial() == Material.WATER)
+							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, 2, BlockCoralBleached.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, pos1, radius, BlockCoralBleached.block.getDefaultState());
 					}
 				}
 
