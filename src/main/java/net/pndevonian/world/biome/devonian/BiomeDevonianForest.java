@@ -67,13 +67,14 @@ public class BiomeDevonianForest extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
 		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenElkinsia ELKINSIA_GENERATOR = new WorldGenElkinsia();
+		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
 
-		protected static final WorldGenRellimia RELLIMIA_GENERATOR = new WorldGenRellimia();
-		protected static final WorldGenLeclercqia LECLERCQIA_GENERATOR = new WorldGenLeclercqia();
+		//protected static final WorldGenRellimia RELLIMIA_GENERATOR = new WorldGenRellimia();
+		//protected static final WorldGenLeclercqia LECLERCQIA_GENERATOR = new WorldGenLeclercqia();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
 		//rotected static final WorldGenIsoetes ISOETES_GENERATOR = new WorldGenIsoetes();
-		//protected static final WorldGenTetraxylopteris TETRAXYLOPTERIS_GENERATOR = new WorldGenTetraxylopteris();
+		protected static final WorldGenTetraxylopteris TETRAXYLOPTERIS_GENERATOR = new WorldGenTetraxylopteris();
 		//protected static final WorldGenBaragwanathia BARAGWANATHIA_GENERATOR = new WorldGenBaragwanathia();
 		//protected static final WorldGenRhynia RHYNIA_GENERATOR = new WorldGenRhynia();
 		protected static final WorldGenCoarseDirt TOPSOIL_GENERATOR = new WorldGenCoarseDirt();
@@ -164,7 +165,7 @@ public class BiomeDevonianForest extends ElementsLepidodendronMod.ModElement {
 				}
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-	        for (int i = 0; i < 8; ++i)
+	        for (int i = 0; i < 10; ++i)
 	        {
 	            int j = rand.nextInt(16) + 8;
 	            int k = rand.nextInt(16) + 8;
@@ -173,12 +174,21 @@ public class BiomeDevonianForest extends ElementsLepidodendronMod.ModElement {
 	        }
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 4; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 24; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					RELLIMIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					TETRAXYLOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
             if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        for (int i = 0; i < 120; ++i)
@@ -205,14 +215,6 @@ public class BiomeDevonianForest extends ElementsLepidodendronMod.ModElement {
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 	            SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 12; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					LECLERCQIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 80; ++i)

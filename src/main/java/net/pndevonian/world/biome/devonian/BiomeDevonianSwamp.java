@@ -69,6 +69,7 @@ public class BiomeDevonianSwamp extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenTreeLog ARCHAEOPTERIS_LOG_GENERATOR = new WorldGenTreeLog(BlockArchaeopterisLog.block);
 		protected static final WorldGenTreeLogWater ARCHAEOPTERIS_LOG_WATER_GENERATOR = new WorldGenTreeLogWater(BlockArchaeopterisLog.block);
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
+		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 
 		protected static final WorldGenSigillariaSmall SIGILLARIA_GENERATOR = new WorldGenSigillariaSmall();
 
@@ -81,7 +82,7 @@ public class BiomeDevonianSwamp extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenGuangdedendron GUANGDEDENDRON_GENERATOR = new WorldGenGuangdedendron();
 		protected static final WorldGenCalamophyton CALAMOPHYTON_GENERATOR = new WorldGenCalamophyton();
 		protected static final WorldGenAneurophyton ANEUROPHYTON_GENERATOR = new WorldGenAneurophyton();
-		protected static final WorldGenIbyka IBYKA_GENERATOR = new WorldGenIbyka();
+		protected static final WorldGenSphenophyllales SPHENOPHYLLALES_GENERATOR = new WorldGenSphenophyllales();
 
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
@@ -233,7 +234,7 @@ public class BiomeDevonianSwamp extends ElementsLepidodendronMod.ModElement {
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					IBYKA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					SPHENOPHYLLALES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 128; ++i)
@@ -242,6 +243,14 @@ public class BiomeDevonianSwamp extends ElementsLepidodendronMod.ModElement {
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 18; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					SPHENOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 

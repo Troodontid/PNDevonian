@@ -64,9 +64,12 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 		protected static final WorldGenStauropteris STAUROPTERIS_GENERATOR = new WorldGenStauropteris();
 		protected static final WorldGenSphenopteris SPHENOPTERIS_GENERATOR = new WorldGenSphenopteris();
 		protected static final WorldGenRellimia RELLIMIA_GENERATOR = new WorldGenRellimia();
+		protected static final WorldGenElkinsia ELKINSIA_GENERATOR = new WorldGenElkinsia();
 		protected static final WorldGenAncientMoss ANCIENT_MOSS_GENERATOR = new WorldGenAncientMoss();
 		protected static final WorldGenSelaginella SELAGINELLA_GENERATOR = new WorldGenSelaginella();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
+		protected static final WorldGenGuangdedendron GUANGDEDENDRON_GENERATOR = new WorldGenGuangdedendron();
+		protected static final WorldGenTetraxylopteris TETRAXYLOPTERIS_GENERATOR = new WorldGenTetraxylopteris();
 
 		protected static final WorldGenIgneous IGNEOUS_GENERATOR = new WorldGenIgneous();
     	protected static final WorldGenToxicMud TOXIC_MUD_GENERATOR = new WorldGenToxicMud();
@@ -75,8 +78,8 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 		//protected static final WorldGenBacterialCrust CRUST_GENERATOR = new WorldGenBacterialCrust();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 		protected static final WorldGenPsilophyton PSILOPHYTON_GENERATOR = new WorldGenPsilophyton();
-		protected static final WorldGenFoozia FOOZIA_GENERATOR = new WorldGenFoozia();
-		protected static final WorldGenIbyka IBYKA_GENERATOR = new WorldGenIbyka();
+		//protected static final WorldGenFoozia FOOZIA_GENERATOR = new WorldGenFoozia();
+		//protected static final WorldGenIbyka IBYKA_GENERATOR = new WorldGenIbyka();
 
 		protected static final WorldGenSandNearWater SAND_GENERATOR = new WorldGenSandNearWater();
 
@@ -140,6 +143,15 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+			for (int i = 0; i < 48; ++i)
+			{
+				int j = rand.nextInt(16) + 8;
+				int k = rand.nextInt(16) + 8;
+				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+				GUANGDEDENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+			}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 56; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
@@ -149,21 +161,12 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 24; ++i)
+				for (int i = 0; i < 6; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					FOOZIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
-				}
-
-			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 24; ++i)
-				{
-					int j = rand.nextInt(16) + 8;
-					int k = rand.nextInt(16) + 8;
-					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					IBYKA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					TETRAXYLOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -175,7 +178,7 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 					RELLIMIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 6; ++i)
+				for (int i = 0; i < 4; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -190,9 +193,17 @@ public class BiomeDevonianVale extends ElementsPNDevonianMod.ModElement {
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					STAUROPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 7; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					ELKINSIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 8; ++i)
+				for (int i = 0; i < 2; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;

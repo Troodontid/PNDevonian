@@ -68,9 +68,12 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 		//protected static final WorldGenPsilophyton PSILOPHYTON_GENERATOR = new WorldGenPsilophyton();
 		protected static final WorldGenXenocladiaShoot XENOCLADIA_GENERATOR = new WorldGenXenocladiaShoot();
 		protected static final WorldGenWattiezaStump STUMP_GENERATOR = new WorldGenWattiezaStump();
-		protected static final WorldGenXihuphyllum XIHUPHYLLUM_GENERATOR = new WorldGenXihuphyllum();
+		//protected static final WorldGenXihuphyllum XIHUPHYLLUM_GENERATOR = new WorldGenXihuphyllum();
+		protected static final WorldGenIbyka IBYKA_GENERATOR = new WorldGenIbyka();
+		protected static final WorldGenPertica PERTICA_GENERATOR = new WorldGenPertica();
+		protected static final WorldGenRellimia RELLIMIA_GENERATOR = new WorldGenRellimia();
 		protected static final WorldGenLeclercqia LECLERCQIA_GENERATOR = new WorldGenLeclercqia();
-		protected static final WorldGenGuangdedendron GUANGDEDENDRON_GENERATOR = new WorldGenGuangdedendron();
+		//protected static final WorldGenGuangdedendron GUANGDEDENDRON_GENERATOR = new WorldGenGuangdedendron();
 		protected static final WorldGenCoarseDirt TOPSOIL_GENERATOR = new WorldGenCoarseDirt();
 		protected static final WorldGenSandyDirt SANDY_DIRT_GENERATOR = new WorldGenSandyDirt();
 		protected static final WorldGenWaterSideSandyDirt WATERSIDE_SANDY_DIRT_GENERATOR = new WorldGenWaterSideSandyDirt();
@@ -142,12 +145,30 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 			}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 5; ++i)
+				for (int i = 0; i < 16; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
-					XIHUPHYLLUM_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+					IBYKA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 16; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PERTICA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 16; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					RELLIMIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
@@ -205,7 +226,7 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 				}
 
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
-				for (int i = 0; i < 256; ++i)
+				for (int i = 0; i < 24; ++i)
 				{
 					int j = rand.nextInt(16) + 8;
 					int k = rand.nextInt(16) + 8;
@@ -213,6 +234,7 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 					TETRAXYLOPTERIS_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
+			/*
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        for (int i = 0; i < 30; ++i)
 	        {
@@ -221,6 +243,7 @@ public class BiomeDevonianGilboa extends ElementsLepidodendronMod.ModElement {
 	            int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 	            GUANGDEDENDRON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 	        }
+			 */
 
 	        if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 	        for (int i = 0; i < 256; ++i)
