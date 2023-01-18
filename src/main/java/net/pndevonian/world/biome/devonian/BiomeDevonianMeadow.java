@@ -73,6 +73,8 @@ public class BiomeDevonianMeadow extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenMud MUD_GENERATOR = new WorldGenMud();
 		protected static final WorldGenSlimyAlgae SLIMY_GENERATOR = new WorldGenSlimyAlgae();
 
+		protected static final WorldGenAsteroxylon ASTEROXYLON_GENERATOR = new WorldGenAsteroxylon();
+
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
 	        return null;
