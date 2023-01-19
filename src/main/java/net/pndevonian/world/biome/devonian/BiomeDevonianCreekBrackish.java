@@ -67,7 +67,8 @@ public class BiomeDevonianCreekBrackish extends ElementsLepidodendronMod.ModElem
 		protected static final WorldGenRedSandyDirt REDSANDYDIRT_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenPrehistoricGroundCover GROUNDCOVER_GENERATOR = new WorldGenPrehistoricGroundCover();
 		protected static final WorldGenPuddles PUDDLES_GENERATOR = new WorldGenPuddles();
-
+		protected static final WorldGenPietzschia PIETZSCHIA_GENERATOR = new WorldGenPietzschia();
+		protected static final WorldGenKeraphyton KERAPHYTON_GENERATOR = new WorldGenKeraphyton();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 		{
@@ -112,6 +113,26 @@ public class BiomeDevonianCreekBrackish extends ElementsLepidodendronMod.ModElem
 					int k = rand.nextInt(16) + 8;
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					PUDDLES_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 8; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					PIETZSCHIA_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+				}
+
+
+			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), DecorateBiomeEvent.Decorate.EventType.GRASS))
+				for (int i = 0; i < 8; ++i)
+				{
+					int j = rand.nextInt(16) + 8;
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+					KERAPHYTON_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
 
 

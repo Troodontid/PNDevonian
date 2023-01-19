@@ -17,14 +17,15 @@ public class GenLayerDiversifyOcean extends GenLayer {
     public int DEVONIAN_OCEAN_DEAD_ID =  Biome.getIdForBiome(DEVONIAN_OCEAN_DEAD);
     public Biome DEVONIAN_REEF = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_reef"));
     public int DEVONIAN_REEF_ID =  Biome.getIdForBiome(DEVONIAN_REEF);
-
+    public Biome DEVONIAN_OCEAN_ROCKY = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_ocean_deep_rocky"));
+    public int DEVONIAN_OCEAN_ROCKY_ID =  Biome.getIdForBiome(DEVONIAN_OCEAN_ROCKY);
 
     private final int OceanBiomes[] = new int[] {
             DEVONIAN_OCEAN_ID,
             DEVONIAN_OCEAN_ID,
-            DEVONIAN_OCEAN_ID,
-            DEVONIAN_OCEAN_ID,
-            DEVONIAN_OCEAN_ID,
+            DEVONIAN_OCEAN_ROCKY_ID,
+            DEVONIAN_OCEAN_ROCKY_ID,
+            DEVONIAN_OCEAN_ROCKY_ID,
             DEVONIAN_OCEAN_DEAD_ID,
             DEVONIAN_REEF_ID
     };
