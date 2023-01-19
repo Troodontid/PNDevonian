@@ -2,6 +2,7 @@
 package net.pndevonian.world.biome.devonian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockCoarseSandyDirtRed;
 import net.lepidodendron.block.BlockCoarseSiltyDirt;
 import net.lepidodendron.util.EnumBiomeTypeDevonian;
 import net.lepidodendron.world.biome.devonian.BiomeDevonian;
@@ -40,7 +41,7 @@ public class BiomeDevonianSprings extends ElementsLepidodendronMod.ModElement {
 		public BiomeGenCustom() {
 			super(new BiomeProperties("Devonian Hot Springs").setRainfall(0.2F).setBaseHeight(-0.1F).setHeightVariation(0.08F).setTemperature(2.0F).setWaterColor(14745518));
 			setRegistryName("devonian_springs");
-			topBlock = BlockCoarseSiltyDirt.block.getDefaultState();
+			topBlock = BlockCoarseSandyDirtRed.block.getDefaultState();
 			fillerBlock = Blocks.CLAY.getDefaultState();
 			decorator.treesPerChunk = -999;
 			decorator.flowersPerChunk = 0;

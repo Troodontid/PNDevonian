@@ -2,6 +2,7 @@
 package net.pndevonian.world.biome.devonian;
 
 import net.lepidodendron.ElementsLepidodendronMod;
+import net.lepidodendron.block.BlockCoarseSandyDirt;
 import net.lepidodendron.util.EnumBiomeTypeDevonian;
 import net.lepidodendron.world.biome.devonian.BiomeDevonian;
 import net.lepidodendron.world.gen.*;
@@ -41,8 +42,8 @@ public class BiomeDevonianCreekBrackish extends ElementsLepidodendronMod.ModElem
 		public BiomeGenCustom() {
 			super(new BiomeProperties("Devonian Brackish Waters").setRainfall(0.5F).setBaseHeight(-0.525F).setHeightVariation(0.0F).setWaterColor(14745518));
 			setRegistryName("devonian_creek_brackish");
-			topBlock = Blocks.STONE.getDefaultState();
-			this.fillerBlock = Blocks.STONE.getDefaultState();
+			topBlock = Blocks.SAND.getDefaultState();
+			this.fillerBlock = BlockCoarseSandyDirt.block.getDefaultState();
 			decorator.treesPerChunk = -999;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
