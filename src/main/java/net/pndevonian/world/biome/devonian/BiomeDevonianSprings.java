@@ -72,6 +72,7 @@ public class BiomeDevonianSprings extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenCooksonia COOKSONIA_GENERATOR = new WorldGenCooksonia();
 		protected static final WorldGenPrehistoricGroundSandy SANDY_GROUND_GENERATOR = new WorldGenPrehistoricGroundSandy();
 		protected static final WorldGenSandyDirt SANDY_DIRT_GENERATOR = new WorldGenSandyDirt();
+		protected static final WorldGenGravelPatch SILTY_DIRT_GENERATOR = new WorldGenGravelPatch(BlockCoarseSiltyDirt.block, 4);
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -117,6 +118,7 @@ public class BiomeDevonianSprings extends ElementsLepidodendronMod.ModElement {
 					int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 					SANDY_GROUND_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 				}
+
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 			for (int i = 0; i < 52; ++i)
 			{
@@ -125,6 +127,15 @@ public class BiomeDevonianSprings extends ElementsLepidodendronMod.ModElement {
 				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
 				SANDY_DIRT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
 			}
+
+			for (int j1 = 0; j1 < 28; ++j1)
+			{
+				int j = rand.nextInt(16) + 8;
+				int k = rand.nextInt(16) + 8;
+				int l = rand.nextInt(worldIn.getHeight(pos.add(j, 0, k)).getY() + 32);
+				this.SILTY_DIRT_GENERATOR.generate(worldIn, rand, pos.add(j, l, k));
+			}
+
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 3; ++i)
 				{
