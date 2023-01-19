@@ -41,7 +41,7 @@ public class BiomeDevonianBrackish extends ElementsLepidodendronMod.ModElement {
 
 	static class BiomeGenCustom extends BiomeDevonian {
 		public BiomeGenCustom() {
-			super(new BiomeProperties("Devonian Brackish Waters").setRainfall(0.5F).setBaseHeight(-0.35F).setHeightVariation(0.03F).setWaterColor(14745518));
+			super(new BiomeProperties("Devonian Brackish Waters").setRainfall(0.5F).setBaseHeight(-0.275F).setHeightVariation(0.03F).setWaterColor(14745518));
 			setRegistryName("devonian_brackish");
 			topBlock = Blocks.STONE.getDefaultState();
 			this.fillerBlock = Blocks.STONE.getDefaultState();

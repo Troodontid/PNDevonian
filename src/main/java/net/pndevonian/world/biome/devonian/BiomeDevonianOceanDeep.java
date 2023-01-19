@@ -167,8 +167,8 @@ public class BiomeDevonianOceanDeep extends ElementsLepidodendronMod.ModElement 
 					BLUE_HOLE_GENERATOR.generate(worldIn, rand, pos1, 14);
 				}
 
-				for (int i = 0; i < 5; ++i) {
-					int radius = 10;
+				for (int i = 0; i < 8; ++i) {
+					int radius = 3;
 					int jj;
 					int kk;
 					if (radius < 14) {
@@ -185,7 +185,7 @@ public class BiomeDevonianOceanDeep extends ElementsLepidodendronMod.ModElement 
 					if (
 							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, radius, BlockCoral.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, posReef, radius, BlockCoral.block.getDefaultState());
 					}
 				}
 			}

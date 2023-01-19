@@ -135,7 +135,7 @@ public class BiomeDevonianOceanDeadReef extends ElementsLepidodendronMod.ModElem
 					if (
 							(posReef.getY() < worldIn.getSeaLevel())
 					) {
-						REEF_GENERATOR.generate(worldIn, rand, pos1, radius, BlockCoralBleached.block.getDefaultState());
+						REEF_GENERATOR.generate(worldIn, rand, posReef, radius, BlockCoralBleached.block.getDefaultState());
 					}
 				}
 

@@ -394,7 +394,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                             }
                         }
 
-                        if (biome == BiomeDevonianReef.biome && Math.random() > 0.45) {
+                        if ((biome == BiomeDevonianReef.biome || biome == BiomeDevonianReefTransition.biome) && Math.random() > 0.45) {
                             iblockstate = BlockCoralBleached.block.getDefaultState();
                         }
 
@@ -462,7 +462,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                             iblockstate = AIR;
                             iblockstate1 = STONE;
                             iblockstate1 = biome.fillerBlock;
-                            if (biome == BiomeDevonianReef.biome
+                            if ((biome == BiomeDevonianReef.biome && biome == BiomeDevonianReefTransition.biome)
                                     && rand.nextInt(8) == 0) {
                                 int s = rand.nextInt(4);
                                 switch (s) {
@@ -492,7 +492,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                 }
                             }
                             else if ((j1 < i - 10 && Math.random() > 0.5)) {
-                                if (biome == BiomeDevonianReef.biome
+                                if ((biome == BiomeDevonianReef.biome || biome == BiomeDevonianReefTransition.biome)
                                         && rand.nextInt(8) == 0) {
                                     int s = rand.nextInt(4);
                                     switch (s) {
@@ -541,7 +541,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                     //chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SAND.getStateFromMeta(0));
                                     if (Math.random() > 0.5) {
                                         if (j1 < i - 3) {
-                                            if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
+                                            if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
                                                 if (Math.random() > 0.66) {
                                                     if (biome == BiomeDevonianHypersalineSinkhole.biome || biome == BiomeDevonianHypersalineSinkholeTransition.biome) {
                                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWhiteWavy.block.getDefaultState());
@@ -600,14 +600,14 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                                 chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWhite.block.getDefaultState());
                                             }
                                             else {
-                                                if (biome != BiomeDevonianReef.biome) {
+                                                if (biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome) {
                                                     chunkPrimerIn.setBlockState(i1, j1, l, Blocks.SAND.getStateFromMeta(1));
                                                 }
                                             }
                                         }
                                     }
                                     else {
-                                        if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
+                                        if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
                                             chunkPrimerIn.setBlockState(i1, j1, l, BlockSandyDirtRed.block.getDefaultState());
                                         }
                                         else {
@@ -628,7 +628,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockCoralBleached.block.getDefaultState().withProperty(BlockCoralBleached.FACING, EnumFacing.WEST));
                                                 }
                                             }
-                                            else if (biome == BiomeDevonianReef.biome && rand.nextInt(4) == 0) {
+                                            else if ((biome == BiomeDevonianReef.biome || biome == BiomeDevonianReefTransition.biome) && rand.nextInt(4) == 0) {
                                                 int r = rand.nextInt(4);
                                                 switch (r) {
                                                     case 0: default:
@@ -653,7 +653,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                 else {
                                     //chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWavy.block.getDefaultState());
                                     if (j1 < i - 2) {
-                                        if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
+                                        if (biome != BiomeDevonianOceanDeadReef.biome && biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome && biome != BiomeDevonianOcean.biome && biome != BiomeDevonianOceanDeep.biome && biome != BiomeDevonianSandyBeach.biome && biome != BiomeDevonianForestBeach.biome) {
                                             if (Math.random() > 0.66) {
                                                 if (biome == BiomeDevonianHypersalineSinkhole.biome || biome == BiomeDevonianHypersalineSinkholeTransition.biome) {
                                                     chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWhiteWavy.block.getDefaultState());
@@ -702,7 +702,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                         }
                                     }
                                     else {
-                                        if (Math.random() > 0.66 && biome != BiomeDevonianReef.biome) {
+                                        if (Math.random() > 0.66 && biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome) {
                                             if (biome == BiomeDevonianHypersalineSinkhole.biome || biome == BiomeDevonianHypersalineSinkholeTransition.biome) {
                                                 chunkPrimerIn.setBlockState(i1, j1, l, BlockSandWhiteWavy.block.getDefaultState());
                                             }
@@ -723,7 +723,7 @@ public class ChunkProviderDevonian implements IChunkGenerator {
                                                     chunkPrimerIn.setBlockState(i1, j1, l, Blocks.CLAY.getDefaultState());
                                                 }
                                                 else {
-                                                    if (biome != BiomeDevonianReef.biome) {
+                                                    if (biome != BiomeDevonianReef.biome && biome != BiomeDevonianReefTransition.biome) {
                                                         chunkPrimerIn.setBlockState(i1, j1, l, BlockRedClay.block.getDefaultState());
                                                     }
                                                 }

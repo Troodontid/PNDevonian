@@ -170,7 +170,7 @@ public class BiomeDevonianCreekCoastal extends ElementsLepidodendronMod.ModEleme
 				}
 
 				for (int i = 0; i < 3; ++i) {
-					int radius = 10;
+					int radius = 3;
 					int jj;
 					int kk;
 					if (radius < 14) {

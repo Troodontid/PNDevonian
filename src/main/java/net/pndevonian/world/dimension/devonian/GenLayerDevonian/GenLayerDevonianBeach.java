@@ -28,7 +28,9 @@ public class GenLayerDevonianBeach extends GenLayer
     public int DEVONIAN_BEACH_FOREST_ID = Biome.getIdForBiome(DEVONIAN_BEACH_FOREST);
     public Biome DEVONIAN_MOUNTAINS = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_mountains"));
     public int DEVONIAN_MOUNTAINS_ID = Biome.getIdForBiome(DEVONIAN_MOUNTAINS);
-    
+    public Biome DEVONIAN_REEF_EDGE = Biome.REGISTRY.getObject(new ResourceLocation("lepidodendron:devonian_reef_transition"));
+    public int DEVONIAN_REEF_EDGE_ID =  Biome.getIdForBiome(DEVONIAN_REEF_EDGE);
+
     public GenLayerDevonianBeach(long seed, GenLayer genLayer)
     {
         super(seed);
@@ -90,7 +92,8 @@ public class GenLayerDevonianBeach extends GenLayer
         if (biomeID == DEVONIAN_OCEAN_ID || biomeID == DEVONIAN_OCEAN_SHORE_ID
                 || biomeID == DEVONIAN_BRACKISH_ID
                 || biomeID == DEVONIAN_REEF_ID
-                || biomeID == DEVONIAN_DEAD_REEF_ID) {
+                || biomeID == DEVONIAN_DEAD_REEF_ID
+                || biomeID == DEVONIAN_REEF_EDGE_ID) {
             return true;
         }
         return false;
