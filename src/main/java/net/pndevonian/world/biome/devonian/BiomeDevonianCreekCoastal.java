@@ -62,31 +62,7 @@ public class BiomeDevonianCreekCoastal extends ElementsLepidodendronMod.ModEleme
 			this.spawnableCaveCreatureList.clear();
 		}
 
-		@Override
-		@SideOnly(Side.CLIENT)
-		public int getFoliageColorAtPos(BlockPos pos)
-		{
-			return -15424749;
-		}
 
-		@Override
-		@SideOnly(Side.CLIENT)
-		public int getGrassColorAtPos(BlockPos pos)
-		{
-			return -15424749;
-		}
-
-		@Override
-		public int getModdedBiomeGrassColor(int original)
-		{
-			return -15424749;
-		}
-
-		@Override
-		public int getModdedBiomeFoliageColor(int original)
-		{
-			return -15424749;
-		}
 
 		protected static final WorldGenArchaeopterisTree ARCHAEOPTERIS_TREE = new WorldGenArchaeopterisTree(false);
 		//protected static final WorldGenBaragwanathia BARAGWANATHIA_GENERATOR = new WorldGenBaragwanathia();
