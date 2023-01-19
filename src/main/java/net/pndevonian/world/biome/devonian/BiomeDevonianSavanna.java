@@ -41,7 +41,7 @@ public class BiomeDevonianSavanna extends ElementsLepidodendronMod.ModElement {
 			super(new BiomeProperties("Devonian Savanna").setRainfall(0.5F).setBaseHeight(0.5F).setHeightVariation(0.22F).setTemperature(2.25F));
 			setRegistryName("lepidodendron:devonian_savanna");
 			topBlock = BlockCoarseSandyDirt.block.getDefaultState();
-			fillerBlock = BlockStoneScoria.block.getDefaultState();
+			fillerBlock = BlockCoarseSandyDirt.block.getDefaultState();
 			decorator.treesPerChunk = -999;
 			decorator.flowersPerChunk = 0;
 			decorator.grassPerChunk = 0;
@@ -65,6 +65,7 @@ public class BiomeDevonianSavanna extends ElementsLepidodendronMod.ModElement {
 		protected static final WorldGenRellimia RELLIMIA_GENERATOR = new WorldGenRellimia();
 		protected static final WorldGenRedSandyDirt RED_GENERATOR = new WorldGenRedSandyDirt();
 		protected static final WorldGenBlackSandyDirt BLACK_GENERATOR = new WorldGenBlackSandyDirt();
+		protected static final WorldGenPrehistoricGround DIRT_GENERATOR = new WorldGenPrehistoricGround();
 
 		public WorldGenAbstractTree getRandomTreeFeature(Random rand)
 	    {
@@ -110,7 +111,17 @@ public class BiomeDevonianSavanna extends ElementsLepidodendronMod.ModElement {
 					BLACK_GENERATOR.generate(worldIn, rand, blockpos);
 				}
 			}
-
+			if (net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.ROCK))
+			{
+				int i = rand.nextInt(12);
+				for (int j = 0; j < i; ++j)
+				{
+					int k = rand.nextInt(16) + 8;
+					int l = rand.nextInt(16) + 8;
+					BlockPos blockpos = worldIn.getHeight(pos.add(k, 0, l));
+					DIRT_GENERATOR.generate(worldIn, rand, blockpos);
+				}
+			}
 			if(net.minecraftforge.event.terraingen.TerrainGen.decorate(worldIn, rand, new net.minecraft.util.math.ChunkPos(pos), net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.GRASS))
 				for (int i = 0; i < 20; ++i)
 				{
